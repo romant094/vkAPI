@@ -1,0 +1,15 @@
+let vkProfile = new XMLHttpRequest;
+
+vkProfile.open('GET', 'https://api.vk.com/method/users.get?7463777');
+vkProfile.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+vkProfile.setRequestHeader('Access-Control-Allow-Origin', 'https://vk.com/romant094');
+vkProfile.send();
+
+vkProfile.addEventListener('readystatechange', () => {
+	if (vkProfile.readyState == 4 && vkProfile.status == 200) {
+		let userInfo = JSON.parse(vkProfile.response);
+		console.log(userInfo);
+	}
+});
+
+// https://api.vk.com/method/METHOD_NAME?PARAMETERS&access_token=ACCESS_TOKEN&v=V
